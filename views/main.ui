@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>RegexValidator</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../sources/icon.png</normaloff>../sources/icon.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -83,7 +87,7 @@
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap>../../../../../Downloads/f644e813-ff4f-41c0-af52-30cba1aa0d7c.001.png</pixmap>
+          <pixmap>../sources/icon.png</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -159,7 +163,7 @@
           <widget class="QLineEdit" name="lineEditER">
            <property name="font">
             <font>
-             <pointsize>14</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
           </widget>
@@ -209,7 +213,13 @@
         </property>
         <layout class="QGridLayout" name="gridLayout">
          <item row="0" column="0">
-          <widget class="QPlainTextEdit" name="plainTextEditInputStrings"/>
+          <widget class="QPlainTextEdit" name="plainTextEditInputStrings">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -256,9 +266,14 @@
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
          <item row="0" column="0">
-          <widget class="QPlainTextEdit" name="plainTextEditAcceptedStrings">
+          <widget class="QTextEdit" name="textEditAcceptedStrings">
            <property name="enabled">
             <bool>false</bool>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
            </property>
           </widget>
          </item>
