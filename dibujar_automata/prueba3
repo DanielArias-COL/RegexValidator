@@ -1,0 +1,12 @@
+// Autómata Finito
+digraph {
+	rankdir=LR
+	q0 [label=q0 shape=circle]
+	q1 [label=q1 shape=circle]
+	q2 [label=q2 shape=doublecircle]
+	"" [label="" shape=none]
+	"" -> q0
+	q0 -> q1 [label=a]
+	q0 -> q2 [label=a]
+	q0 -> q2 [label=b]
+}

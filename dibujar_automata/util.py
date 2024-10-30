@@ -1,5 +1,5 @@
 from graphviz import Digraph
-from PIL import Image
+import re
 
 
 class Estado:
@@ -27,11 +27,31 @@ class Automata:
                 self.estados[origen].transiciones[simbolo] = set()
             self.estados[origen].transiciones[simbolo].add(destino)
 
+class InvalidRegexException(Exception):
+    pass
+
 class GeneradorAutomata:
     def __init__(self):
         self.automata = Automata()
 
+    def validar_expresion(self, expr):
+        # Validar expresión utilizando una expresión regular básica para detectar caracteres inválidos
+        if not re.match(r'^[a-zA-Z0-9|()*+]*$', expr):
+            raise InvalidRegexException("La expresión contiene caracteres inválidos.")
+        # Validar paréntesis balanceados
+        stack = []
+        for char in expr:
+            if char == '(':
+                stack.append(char)
+            elif char == ')':
+                if not stack:
+                    raise InvalidRegexException("Paréntesis desbalanceados en la expresión.")
+                stack.pop()
+        if stack:
+            raise InvalidRegexException("Paréntesis desbalanceados en la expresión.")
+
     def procesar_expresion(self, expr):
+        self.validar_expresion(expr)  # Validar antes de procesar
         self.automata = Automata()
         estado_inicial = self.automata.crear_estado()
         self.automata.estado_inicial = estado_inicial
@@ -85,9 +105,7 @@ class GeneradorAutomata:
                 estado_actual = nuevo_estado
         return estado_final
 
-
-    def visualizar_automata(self, output_path='automata.png'):
-
+    def visualizar_automata(self, output_path='automata'):
         dot = Digraph(comment='Autómata Finito')
         dot.attr(rankdir='LR')
 
@@ -102,13 +120,10 @@ class GeneradorAutomata:
 
         for estado_id, estado in self.automata.estados.items():
             for simbolo, destinos in estado.transiciones.items():
-                if simbolo != ')':  # Ignorar el paréntesis de cierre
+                if simbolo != ')':
                     for destino in destinos:
                         dot.edge(estado_id, destino, label=simbolo)
 
+        output_path = output_path.replace('.png', '')
         dot.render(output_path, format='png', cleanup=False)
-
-        return output_path
-
-
-
+        return f"{output_path}.png"
