@@ -1,6 +1,6 @@
 from PyQt6 import uic
 from PyQt6.QtWidgets import QDialog
-from mundo.util import Util
+from world.util import Util
 from PyQt6.QtGui import QColor, QTextCursor, QTextCharFormat
 
 
@@ -19,6 +19,7 @@ class MainWondow(QDialog):
         self.input_string= self.ui.plainTextEditInputStrings
         self.acepted_strings = self.ui.textEditAcceptedStrings 
         self.validate_btn = self.ui.pushButtonValidate
+        self.generateAutomata_btn = self.ui.pushButtonGenerateAutomata    
 
         self.clase_util = Util()
         self.init_signal_slot()
@@ -26,23 +27,26 @@ class MainWondow(QDialog):
 
     
     def init_signal_slot(self):
-        """
-        Conecta los botones de la interfaz a sus respectivos métodos.
+        """        
+        Connects the interface buttons to their respective methods.
 
-        Conecta el botón de validación (validate_btn) con el método validate_expression.
+        Connects the validation button (validate_btn) with the validate_expression method.
+
         """
         self.validate_btn.clicked.connect(self.validate_expression)
+        self.generateAutomata_btn.clicked.connect(self.generate_automata)
+        
 
     
     def validate_expression(self):
         """
-        Método para validar la expresión regular ingresada en el campo correspondiente.
+        Method to validate the regular expression entered in the corresponding field.
 
-        Este método obtiene la expresión regular y el texto de entrada, los envía a la clase Util para
-        encontrar las posiciones de coincidencia, y luego utiliza esas posiciones para resaltar el
-        texto en el campo acepted_strings.
+        This method retrieves the regular expression and the input text, sends them to the Util class to
+        find the match positions, and then uses those positions to highlight the text in the accepted_strings field.
+
         """
-        expression = self.regular_expression.text()
+        expression = self.clase_util.removeSpaces(self.regular_expression.text())
         text = self.input_string.toPlainText()
         self.acepted_strings.setPlainText(text)
 
@@ -51,20 +55,23 @@ class MainWondow(QDialog):
         self.highlight_text(self.acepted_strings, positions_to_highlight)
 
 
+    def generate_automata(self):
+        print("generate automata")
 
     def highlight_text(self, text_edit, positions):
         """
-        Resalta las coincidencias en el QTextEdit proporcionado.
+        Highlights the matches in the provided QTextEdit.
 
-        Este método recibe un QTextEdit y una lista de tuplas con posiciones de inicio y fin. Utiliza un
-        QTextCursor para resaltar las coincidencias en el QTextEdit, aplicando un fondo de color.
+        This method receives a QTextEdit and a list of tuples with start and end positions. It uses a
+        QTextCursor to highlight the matches in the QTextEdit by applying a background color.
 
-        Parámetros:
+        Parameters:
         -----------
         text_edit : QTextEdit
-            Campo de texto donde se resaltarán las coincidencias
+            Text field where the matches will be highlighted
         positions : list of tuple
-            Lista de tuplas que contienen posiciones de inicio y fin de cada coincidencia
+            List of tuples containing the start and end positions of each match
+
         """
         cursor = text_edit.textCursor()
         cursor.clearSelection()
