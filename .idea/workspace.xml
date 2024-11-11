@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1e0d15c-58f9-44cd-bf2d-bbf2a1efaee7" name="Changes" comment="" />
+    <list default="true" id="c1e0d15c-58f9-44cd-bf2d-bbf2a1efaee7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/draw automata/automata.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/draw automata/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/draw_automata/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/draw automata/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/draw_automata/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/main_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/main_form.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,17 +60,19 @@
     "Python.test.executor": "Run",
     "Python.util.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/ASUS/OneDrive/Documentos/IngenieriaDeSistemas/Semestre7/Tlf/Proyecto Final/RegexValidator",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Python tests.Python tests for test.TestAutomata">
-    <configuration name="util" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.app">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="RegexValidator" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -73,12 +81,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dibujar_automata" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dibujar_automata/util.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -100,22 +108,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test.TestAutomata&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for test.TestAutomata.test_procesar_expresion_clausura" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="RegexValidator" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dibujar_automata" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test.TestAutomata.test_procesar_expresion_clausura&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -169,11 +161,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.app" />
         <item itemvalue="Python tests.Python tests for test.TestAutomata" />
         <item itemvalue="Python tests.Python tests for test.TestAutomata.test_visualizar_automata" />
         <item itemvalue="Python tests.Python tests for test.TestAutomata.test_validar_expresion_invalida" />
         <item itemvalue="Python tests.Python tests for test.TestAutomata.test_validar_expresion_valida" />
-        <item itemvalue="Python tests.Python tests for test.TestAutomata.test_procesar_expresion_clausura" />
       </list>
     </recent_temporary>
   </component>
@@ -201,6 +193,7 @@
       <workItem from="1730322939798" duration="2891000" />
       <workItem from="1731025916450" duration="545000" />
       <workItem from="1731337350388" duration="4275000" />
+      <workItem from="1731342196028" duration="2343000" />
     </task>
     <servers />
   </component>
@@ -209,8 +202,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RegexValidator$main_form.coverage" NAME="main_form Coverage Results" MODIFIED="1730294887341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/views" />
-    <SUITE FILE_PATH="coverage/RegexValidator$app.coverage" NAME="app Coverage Results" MODIFIED="1730322973123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/RegexValidator$test.coverage" NAME="test Coverage Results" MODIFIED="1730325774577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dibujar_automata" />
+    <SUITE FILE_PATH="coverage/RegexValidator$app.coverage" NAME="app Coverage Results" MODIFIED="1731344906875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/RegexValidator$util.coverage" NAME="util Coverage Results" MODIFIED="1730293887167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dibujar_automata" />
     <SUITE FILE_PATH="coverage/RegexValidator$.coverage" NAME=" Coverage Results" MODIFIED="1731341589877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dibujar_automata" />
   </component>

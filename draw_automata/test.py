@@ -1,7 +1,7 @@
 import unittest
 import  os
 
-from dibujar_automata.util import GeneradorAutomata, Automata, InvalidRegexException
+from draw_automata.util import GeneradorAutomata, Automata, InvalidRegexException
 
 
 class TestAutomata(unittest.TestCase):

@@ -1,5 +1,8 @@
 from PyQt6 import uic
-from PyQt6.QtWidgets import QDialog
+from PyQt6.QtWidgets import QDialog, QMessageBox
+
+from draw_automata.util import GeneradorAutomata, probar_automata
+from world.test import expression
 from world.util import Util
 from PyQt6.QtGui import QColor, QTextCursor, QTextCharFormat
 
@@ -11,6 +14,7 @@ class MainWondow(QDialog):
         super().__init__()
 
         #We initialice the view
+        self.probar_automata = None
         self.ui = uic.loadUi('views/main.ui',self)
         
          
@@ -22,6 +26,7 @@ class MainWondow(QDialog):
         self.generateAutomata_btn = self.ui.pushButtonGenerateAutomata    
 
         self.clase_util = Util()
+        self.generador_automata = GeneradorAutomata()
         self.init_signal_slot()
         self.ui.show()
 
@@ -56,7 +61,17 @@ class MainWondow(QDialog):
 
 
     def generate_automata(self):
-        print("generate automata")
+
+        expression = self.clase_util.removeSpaces(self.regular_expression.text())
+
+        try:
+            # Genera el autómata con la expresión ingresada
+            self.generador_automata.procesar_expresion(expression)
+            self.generador_automata.visualizar_automata()
+            self.probar_automata = probar_automata(expression)
+            QMessageBox.information(self, "Éxito", "El autómata se ha generado y guardado como 'automata.png'")
+        except Exception as e:
+            QMessageBox.warning(self, "Error", f"Ocurrió un error al generar el autómata: {e}")
 
     def highlight_text(self, text_edit, positions):
         """

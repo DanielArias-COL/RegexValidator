@@ -1,9 +1,9 @@
 import os
 import re
+import tempfile
 from graphviz import Digraph
 from PIL import Image
 
-# Add Graphviz bin directory to PATH (solo en Windows)
 os.environ["PATH"] += os.pathsep + r"C:\Program Files\Graphviz\bin"
 
 class Estado:
@@ -126,10 +126,8 @@ class GeneradorAutomata:
 
         # Dibuja todos los estados y marca el estado final con doble círculo
         for estado_id, estado in self.automata.estados.items():
-            if estado.es_final:
-                dot.node(estado_id, estado_id, shape='doublecircle')
-            else:
-                dot.node(estado_id, estado_id, shape='circle')
+            shape = 'doublecircle' if estado.es_final else 'circle'
+            dot.node(estado_id, estado_id, shape=shape)
 
         # Nodo inicial
         dot.node('', '', shape='none')
@@ -141,18 +139,23 @@ class GeneradorAutomata:
                 for destino in destinos:
                     dot.edge(estado_id, destino, label=simbolo)
 
-        # Guardar la imagen del autómata
-        dot.render('automata', format='png', cleanup=True)
-        return dot
+        # Guardar en un directorio temporal
+        temp_dir = tempfile.gettempdir()
+        file_path = f"{temp_dir}/automata"
+        dot.render(file_path, format='png', cleanup=True)
+
+        print(f"Autómata guardado en: {file_path}.png")
+        return file_path + '.png'
 
 def probar_automata(expr):
     generador = GeneradorAutomata()
     automata = generador.procesar_expresion(expr)
     dot = generador.visualizar_automata()
+    file_path = generador.visualizar_automata()
 
     print(f"Autómata generado para la expresión: {expr}")
     print("El autómata ha sido guardado como 'automata.png'")
 
     # Abrir la imagen generada
-    img = Image.open('automata.png')
+    img = Image.open(file_path)
     img.show()
