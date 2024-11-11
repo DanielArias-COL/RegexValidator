@@ -1,70 +1,63 @@
 import unittest
 import  os
 
-from draw_automata.util import GeneradorAutomata, Automata, InvalidRegexException
+from draw_automata.util import GeneratorAutomata, Automata, InvalidRegexException
 
 
 class TestAutomata(unittest.TestCase):
     def setUp(self):
-        self.generador = GeneradorAutomata()
+        self.generador = GeneratorAutomata()
 
-    def test_procesar_expresion_basica(self):
+    def test_process_basic_expression(self):
         expr = 'a|b'
-        automata = self.generador.procesar_expresion(expr)
+        automata = self.generador.process_expresion(expr)
 
-        # Verificar que el autómata tiene los estados correctos
         self.assertIsInstance(automata, Automata)
-        self.assertIn(automata.estado_inicial, automata.estados)
-        self.assertTrue(any(estado.es_final for estado in automata.estados.values()))
+        self.assertIn(automata.initial_state, automata.state)
+        self.assertTrue(any(estado.is_final for estado in automata.state.values()))
 
-        # Verificar transiciones para la expresión 'a|b'
-        estados_iniciales = [automata.estado_inicial]
-        destinos_a = [dest for dest in automata.estados[automata.estado_inicial].transiciones.get('a', [])]
-        destinos_b = [dest for dest in automata.estados[automata.estado_inicial].transiciones.get('b', [])]
+        initial_states = [automata.initial_state]
+        destinations_a = [dest for dest in automata.state[automata.initial_state].transactions.get('a', [])]
+        destination_b = [dest for dest in automata.state[automata.initial_state].transactions.get('b', [])]
 
-        self.assertTrue(destinos_a or destinos_b)
-        self.assertTrue(destinos_a[0] in automata.estados and destinos_b[0] in automata.estados)
+        self.assertTrue(destinations_a or destination_b)
+        self.assertTrue(destinations_a[0] in automata.state and destination_b[0] in automata.state)
 
-    def test_procesar_expresion_con_estrella(self):
+    def test_process_expression_with_star(self):
         expr = 'a*'
-        automata = self.generador.procesar_expresion(expr)
+        automata = self.generador.process_expresion(expr)
 
-        # Verificar que el autómata tiene los estados correctos
         self.assertIsInstance(automata, Automata)
-        self.assertIn(automata.estado_inicial, automata.estados)
-        self.assertTrue(any(estado.es_final for estado in automata.estados.values()))
+        self.assertIn(automata.initial_state, automata.state)
+        self.assertTrue(any(estado.is_final for estado in automata.state.values()))
 
-        # Verificar transiciones para la expresión 'a*'
-        estado_inicial = automata.estado_inicial
-        self.assertIn('a', automata.estados[estado_inicial].transiciones)
-        destinos_a = automata.estados[estado_inicial].transiciones['a']
+        initial_state = automata.initial_state
+        self.assertIn('a', automata.state[initial_state].transactions)
+        destinations_a = automata.state[initial_state].transactions['a']
 
-        for destino in destinos_a:
-            self.assertIn(destino, automata.estados)
+        for destino in destinations_a:
+            self.assertIn(destino, automata.state)
 
-    def test_procesar_expresion_con_cierre_positivo(self):
+    def test_process_expression_with_positive_closure(self):
         expr = 'a+'
-        automata = self.generador.procesar_expresion(expr)
+        automata = self.generador.process_expresion(expr)
 
-        # Verificar que el autómata tiene los estados correctos
         self.assertIsInstance(automata, Automata)
-        self.assertIn(automata.estado_inicial, automata.estados)
-        self.assertTrue(any(estado.es_final for estado in automata.estados.values()))
+        self.assertIn(automata.initial_state, automata.state)
+        self.assertTrue(any(estado.is_final for estado in automata.state.values()))
 
-        # Verificar transiciones para la expresión 'a+'
-        estado_inicial = automata.estado_inicial
-        self.assertIn('a', automata.estados[estado_inicial].transiciones)
-        destinos_a = automata.estados[estado_inicial].transiciones['a']
+        initial_states = automata.initial_state
+        self.assertIn('a', automata.state[initial_states].transactions)
+        destinos_a = automata.state[initial_states].transactions['a']
 
         for destino in destinos_a:
-            self.assertIn(destino, automata.estados)
+            self.assertIn(destino, automata.state)
 
     def test_visualizar_automata(self):
         expr = 'a*(a|b)'
-        automata = self.generador.procesar_expresion(expr)
-        dot = self.generador.visualizar_automata()
+        automata = self.generador.process_expresion(expr)
+        dot = self.generador.visualize_automata()
 
-        # Verificar que el objeto Dot se genera correctamente
         self.assertIsNotNone(dot)
         self.assertIn('digraph', dot.source)
 

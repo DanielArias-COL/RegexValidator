@@ -1,7 +1,7 @@
 from PyQt6 import uic
 from PyQt6.QtWidgets import QDialog, QMessageBox
 
-from draw_automata.util import GeneradorAutomata, probar_automata
+from draw_automata.util import GeneratorAutomata, test_automata
 from world.test import expression
 from world.util import Util
 from PyQt6.QtGui import QColor, QTextCursor, QTextCharFormat
@@ -14,7 +14,7 @@ class MainWondow(QDialog):
         super().__init__()
 
         #We initialice the view
-        self.probar_automata = None
+        self.test_automata = None
         self.ui = uic.loadUi('views/main.ui',self)
         
          
@@ -26,7 +26,7 @@ class MainWondow(QDialog):
         self.generateAutomata_btn = self.ui.pushButtonGenerateAutomata    
 
         self.clase_util = Util()
-        self.generador_automata = GeneradorAutomata()
+        self.generator_automata = GeneratorAutomata()
         self.init_signal_slot()
         self.ui.show()
 
@@ -61,17 +61,37 @@ class MainWondow(QDialog):
 
 
     def generate_automata(self):
+        """
+            Generates an automaton from the regular expression entered by the user, visualizes it,
+            and shows a message box indicating success or failure.
+
+            The method processes the regular expression, generates the corresponding automaton,
+            and visualizes it as a PNG image. If the process is successful, a success message
+            is displayed. If an error occurs, an error message is shown instead.
+
+            The steps followed are:
+            1. Removes spaces from the input regular expression.
+            2. Processes the expression to generate an automaton.
+            3. Visualizes the automaton and saves it as 'automata.png'.
+            4. Tests the generated automaton.
+            5. Displays a success message or an error message if an exception is raised.
+
+            If any error occurs during the automaton generation, a warning message is displayed
+            with the exception details.
+
+            Returns:
+                None
+            """
 
         expression = self.clase_util.removeSpaces(self.regular_expression.text())
 
         try:
-            # Genera el autómata con la expresión ingresada
-            self.generador_automata.procesar_expresion(expression)
-            self.generador_automata.visualizar_automata()
-            self.probar_automata = probar_automata(expression)
-            QMessageBox.information(self, "Éxito", "El autómata se ha generado y guardado como 'automata.png'")
+            self.generator_automata.process_expresion(expression)
+            self.generator_automata.visualize_automata()
+            self.test_automata = test_automata(expression)
+            QMessageBox.information(self, "Success", "The automaton has been generated and saved as 'automata.png'")
         except Exception as e:
-            QMessageBox.warning(self, "Error", f"Ocurrió un error al generar el autómata: {e}")
+            QMessageBox.warning(self, "Error", f"An error occurred while generating the automaton: {e}")
 
     def highlight_text(self, text_edit, positions):
         """

@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c1e0d15c-58f9-44cd-bf2d-bbf2a1efaee7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/draw automata/automata.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/draw automata/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/draw_automata/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/draw automata/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/draw_automata/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/draw_automata/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/draw_automata/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/draw_automata/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/draw_automata/util.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/main_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/main_form.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,43 +33,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests for test.TestAutomata (1).executor": "Run",
-    "Python tests.Python tests for test.TestAutomata.executor": "Run",
-    "Python tests.Python tests for test.TestAutomata.test_agregar_transicion.executor": "Run",
-    "Python tests.Python tests for test.TestAutomata.test_crear_estado.executor": "Run",
-    "Python tests.Python tests for test.TestAutomata.test_empty_string.executor": "Run",
-    "Python tests.Python tests for test.TestAutomata.test_generar_automata_desde_regex.executor": "Run",
-    "Python tests.Python tests for test.TestAutomata.test_invalid_binary_character.executor": "Run",
-    "Python tests.Python tests for test.TestAutomata.test_invalid_transition_end.executor": "Run",
-    "Python tests.Python tests for test.TestAutomata.test_procesar_expresion_clausura.executor": "Run",
-    "Python tests.Python tests for test.TestAutomata.test_procesar_expresion_simple.executor": "Run",
-    "Python tests.Python tests for test.TestAutomata.test_valid_binary_even.executor": "Run",
-    "Python tests.Python tests for test.TestAutomata.test_validar_expresion_invalida.executor": "Run",
-    "Python tests.Python tests for test.TestAutomata.test_validar_expresion_parentesis_desbalanceados.executor": "Run",
-    "Python tests.Python tests for test.TestAutomata.test_validar_expresion_valida.executor": "Run",
-    "Python tests.Python tests for test.TestAutomata.test_visualizar_automata.executor": "Run",
-    "Python tests.Python tests for test.TestGeneradorAutomata.executor": "Run",
-    "Python tests.Python tests for test.TestGeneradorAutomata.test_concatenacion.executor": "Run",
-    "Python tests.Python tests for test.TestRegexToAutomataConverter.executor": "Run",
-    "Python tests.Python tests for util.TestRegexToAutomataConverter.executor": "Run",
-    "Python.app.executor": "Run",
-    "Python.main_form.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.util.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/ASUS/OneDrive/Documentos/IngenieriaDeSistemas/Semestre7/Tlf/Proyecto Final/RegexValidator",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test.TestAutomata (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestAutomata.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestAutomata.test_agregar_transicion.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestAutomata.test_crear_estado.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestAutomata.test_empty_string.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestAutomata.test_generar_automata_desde_regex.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestAutomata.test_invalid_binary_character.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestAutomata.test_invalid_transition_end.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestAutomata.test_procesar_expresion_clausura.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestAutomata.test_procesar_expresion_simple.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestAutomata.test_valid_binary_even.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestAutomata.test_validar_expresion_invalida.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestAutomata.test_validar_expresion_parentesis_desbalanceados.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestAutomata.test_validar_expresion_valida.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestAutomata.test_visualizar_automata.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestGeneradorAutomata.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestGeneradorAutomata.test_concatenacion.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test.TestRegexToAutomataConverter.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for util.TestRegexToAutomataConverter.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main_form.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.util.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/OneDrive/Documentos/IngenieriaDeSistemas/Semestre7/Tlf/Proyecto Final/RegexValidator&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.app">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="RegexValidator" />
@@ -201,10 +200,10 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/RegexValidator$main_form.coverage" NAME="main_form Coverage Results" MODIFIED="1730294887341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/views" />
     <SUITE FILE_PATH="coverage/RegexValidator$test.coverage" NAME="test Coverage Results" MODIFIED="1730325774577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dibujar_automata" />
-    <SUITE FILE_PATH="coverage/RegexValidator$app.coverage" NAME="app Coverage Results" MODIFIED="1731344906875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RegexValidator$main_form.coverage" NAME="main_form Coverage Results" MODIFIED="1731347188935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/views" />
+    <SUITE FILE_PATH="coverage/RegexValidator$app.coverage" NAME="app Coverage Results" MODIFIED="1731351127428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/RegexValidator$util.coverage" NAME="util Coverage Results" MODIFIED="1730293887167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dibujar_automata" />
-    <SUITE FILE_PATH="coverage/RegexValidator$.coverage" NAME=" Coverage Results" MODIFIED="1731341589877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dibujar_automata" />
+    <SUITE FILE_PATH="coverage/RegexValidator$.coverage" NAME=" Coverage Results" MODIFIED="1731346404497" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/draw_automata" />
   </component>
 </project>
