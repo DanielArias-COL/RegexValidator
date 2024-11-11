@@ -1,36 +1,72 @@
-import os
-from dibujar_automata.util import GeneradorAutomata, InvalidRegexException
+import unittest
+import  os
 
-class TestAutomata:
-    def __init__(self):
+from dibujar_automata.util import GeneradorAutomata, Automata, InvalidRegexException
+
+
+class TestAutomata(unittest.TestCase):
+    def setUp(self):
         self.generador = GeneradorAutomata()
 
-    def prueba_expresion(self, expr, nombre_prueba):
-        print(f"Probando expresión regular: '{expr}'")
-        try:
-            automata = self.generador.procesar_expresion(expr)
-            output_path = f'{nombre_prueba}.png'
-            output_path = self.generador.visualizar_automata(output_path=output_path)
+    def test_procesar_expresion_basica(self):
+        expr = 'a|b'
+        automata = self.generador.procesar_expresion(expr)
 
-            if os.path.exists(output_path):
-                print(f"Imagen generada: '{output_path}'")
-            else:
-                print(f"Error: No se generó el archivo de imagen '{output_path}'. Verifica si Graphviz está instalado correctamente.")
+        # Verificar que el autómata tiene los estados correctos
+        self.assertIsInstance(automata, Automata)
+        self.assertIn(automata.estado_inicial, automata.estados)
+        self.assertTrue(any(estado.es_final for estado in automata.estados.values()))
 
-        except InvalidRegexException as e:
-            print(f"Error: {e}")
+        # Verificar transiciones para la expresión 'a|b'
+        estados_iniciales = [automata.estado_inicial]
+        destinos_a = [dest for dest in automata.estados[automata.estado_inicial].transiciones.get('a', [])]
+        destinos_b = [dest for dest in automata.estados[automata.estado_inicial].transiciones.get('b', [])]
 
-    def ejecutar_pruebas(self):
-        self.prueba_expresion('a', 'prueba1')
-        self.prueba_expresion('ab', 'prueba2')
-        self.prueba_expresion('a|b', 'prueba3')
-        self.prueba_expresion('(a|b)c', 'prueba4')
-        self.prueba_expresion('a*', 'prueba5')
-        self.prueba_expresion('(ab)*', 'prueba6')
-        self.prueba_expresion('a+b', 'prueba7')
-        self.prueba_expresion('(a|b)*c', 'prueba8')
-        self.prueba_expresion(')()(||12', 'prueba9')  # Esta prueba generará un error
+        self.assertTrue(destinos_a or destinos_b)
+        self.assertTrue(destinos_a[0] in automata.estados and destinos_b[0] in automata.estados)
 
-if __name__ == "__main__":
-    pruebas = TestAutomata()
-    pruebas.ejecutar_pruebas()
+    def test_procesar_expresion_con_estrella(self):
+        expr = 'a*'
+        automata = self.generador.procesar_expresion(expr)
+
+        # Verificar que el autómata tiene los estados correctos
+        self.assertIsInstance(automata, Automata)
+        self.assertIn(automata.estado_inicial, automata.estados)
+        self.assertTrue(any(estado.es_final for estado in automata.estados.values()))
+
+        # Verificar transiciones para la expresión 'a*'
+        estado_inicial = automata.estado_inicial
+        self.assertIn('a', automata.estados[estado_inicial].transiciones)
+        destinos_a = automata.estados[estado_inicial].transiciones['a']
+
+        for destino in destinos_a:
+            self.assertIn(destino, automata.estados)
+
+    def test_procesar_expresion_con_cierre_positivo(self):
+        expr = 'a+'
+        automata = self.generador.procesar_expresion(expr)
+
+        # Verificar que el autómata tiene los estados correctos
+        self.assertIsInstance(automata, Automata)
+        self.assertIn(automata.estado_inicial, automata.estados)
+        self.assertTrue(any(estado.es_final for estado in automata.estados.values()))
+
+        # Verificar transiciones para la expresión 'a+'
+        estado_inicial = automata.estado_inicial
+        self.assertIn('a', automata.estados[estado_inicial].transiciones)
+        destinos_a = automata.estados[estado_inicial].transiciones['a']
+
+        for destino in destinos_a:
+            self.assertIn(destino, automata.estados)
+
+    def test_visualizar_automata(self):
+        expr = 'a*(a|b)'
+        automata = self.generador.procesar_expresion(expr)
+        dot = self.generador.visualizar_automata()
+
+        # Verificar que el objeto Dot se genera correctamente
+        self.assertIsNotNone(dot)
+        self.assertIn('digraph', dot.source)
+
+if __name__ == '__main__':
+    unittest.main()
