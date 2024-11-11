@@ -294,9 +294,9 @@
         <widget class="QPushButton" name="pushButtonValidate">
          <property name="geometry">
           <rect>
-           <x>290</x>
+           <x>204</x>
            <y>10</y>
-           <width>75</width>
+           <width>101</width>
            <height>24</height>
           </rect>
          </property>
@@ -305,6 +305,19 @@
          </property>
          <property name="text">
           <string>Validate</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButtonGenerateAutomata">
+         <property name="geometry">
+          <rect>
+           <x>330</x>
+           <y>10</y>
+           <width>121</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Generate Automata</string>
          </property>
         </widget>
        </widget>
